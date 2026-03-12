@@ -69,3 +69,6 @@ rf_pred = rf_model.predict(features_test)
 print(accuracy_score(labels_test, rf_pred))
 print(confusion_matrix(labels_test, rf_pred))
 print(classification_report(labels_test, rf_pred))
+
+importance = pd.Series(rf_model.feature_importances_, index=features_train.columns)
+print(importance.sort_values(ascending=False).head(10))
